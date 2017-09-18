@@ -64,15 +64,4 @@ public:
       throw std::runtime_error("openssl: error calling PBKCS5_PBKDF2_HMAC_SHA1");
     return key;
   }
-  
-  static std::string pbkdf2_2(const std::string &password, const std::string &salt, int iterations = 2048, int key_length = 160 / 8) {
-    std::string key;
-    key.resize(key_length);
-    auto success = PKCS5_PBKDF2_HMAC_SHA1(password.data(), password.size(),
-                                          (const unsigned char *)salt.data(), salt.size(), iterations,
-                                          key_length, (unsigned char *)key.data());
-    if (!success)
-      throw std::runtime_error("openssl: error calling PBKCS5_PBKDF2_HMAC_SHA1");
-    return key;
-  }
 };
