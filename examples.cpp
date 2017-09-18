@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+// Comment
 
 int main() {
   cout << "SHA-1 with 1 iteration" << endl;
